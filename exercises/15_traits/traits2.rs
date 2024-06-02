@@ -8,10 +8,19 @@
 //
 // Execute `rustlings hint traits2` or use the `hint` watch subcommand for a hint.
 
-// I AM NOT DONE
-
 trait AppendBar {
     fn append_bar(self) -> Self;
+}
+
+impl AppendBar for Vec<String> {
+    fn append_bar(mut self) -> Self {
+        // NOTE: I thought this would be adding "Bar" to the
+        // end of every string in the vector of strings;
+        // it is apparently not supposed to be that lmao
+        // self.iter().map(|elt| elt.to_owned() + "Bar").collect()
+        self.push(String::from("Bar"));
+        self
+    }
 }
 
 // TODO: Implement trait `AppendBar` for a vector of strings.
